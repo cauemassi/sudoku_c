@@ -3,37 +3,19 @@
 //Programacao Estruturada - Fabricio Olivetti
 //Projeto: Sudoku
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "func.h"
 
 #define MAX 9
 
-
-void print_sudoku(int v[9][9],int n,int m){
-	int i, j;
-	for(i = 0; i < n; i++){
-		for(j = 0; j < m; j++){
-			printf("%d ",v[i][j]);
-		}
-		printf("\n",v[i][j]);
-	}
-	
-}
-
-void preenche_sudoku(int v[9][9],int n,int m){
-	int i, j;
-	for(i = 0; i < n; i++){
-		for(j = 0; j < m; j++){
-			scanf("%d", &v[i][j]);
-		}
-	}
-	
-}
-
 int main(){
 	int sudoku[9][9];
+	quadrado matriz[9][9];
 	preenche_sudoku(sudoku, MAX, MAX);
-	print_sudoku(sudoku, MAX, MAX);
+	matriz_mutavel(sudoku, matriz);
+	print_quadrado_valores(matriz,MAX,MAX);
+	matriz_possiveis(sudoku, matriz);
+	resolve_sudoku(matriz,0,0,sudoku);
+	print_quadrado_valores(matriz,MAX,MAX);
 	
 	return 0;
 }
