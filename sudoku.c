@@ -8,14 +8,13 @@
 #define MAX 9
 
 int main(){
-	int sudoku[9][9];
-	quadrado matriz[9][9];
-	preenche_sudoku(sudoku, MAX, MAX);
-	matriz_mutavel(sudoku, matriz);
-	print_quadrado_valores(matriz,MAX,MAX);
-	matriz_possiveis(sudoku, matriz);
-	resolve_sudoku(matriz,0,0,sudoku);
-	print_quadrado_valores(matriz,MAX,MAX);
-	
+	quadrado sudoku[9][9];
+	preenche_quadrado(sudoku, MAX, MAX);
+	printf("Sua Sudoku é:\n");
+	print_quadrado(sudoku,MAX,MAX);	
+	matriz_possiveis(sudoku);
+	resolve_sudoku(sudoku,0,0);
 	return 0;
 }
+
+
